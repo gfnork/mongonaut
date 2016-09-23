@@ -1,5 +1,5 @@
 'use strict';
-let exec = require('child_process').exec;
+let spawn = require('child_process').spawn;
 let defaults = require('./lib/defaults');
 let query = require('./lib/query');
 let helpers = require('./lib/helpers');
@@ -8,7 +8,7 @@ let getDbQuery = helpers.getDbQuery;
 
 let Mongonaut = function (options) {
   this.config = Object.assign(defaults(), options);
-  this.exec = exec;
+  this.spawn = spawn;
   this.query = query;
   this.runDbAction = runDbAction.bind(this);
 };
